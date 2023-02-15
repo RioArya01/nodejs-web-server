@@ -12,11 +12,11 @@ const requestListener = (request, response) => {
 
     if(method === 'POST') {
         let body = [];
-    
+
         request.on('data', (chunk) => {
             body.push(chunk);
         });
-        
+
         request.on('end', () => {
             body = Buffer.concat(body).toString();
             const { name } = JSON.parse(body);
